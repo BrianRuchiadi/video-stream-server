@@ -1,6 +1,8 @@
 import createPeerServer from './modules/server.js';
 
 async function startPeerServer(host, port, path) {
+  if (!host || !port) { return; }
+
   const onhost = (host) ?? 'localhost';
   const onport = (port) ?? '9900';
   const onpath = (path) ?? '/stream';
@@ -14,5 +16,4 @@ async function startPeerServer(host, port, path) {
   console.log(`Peer Server is started! ${onhost}:${onport}${onpath}`);
 }
 
-startPeerServer();
-
+export default startPeerServer;
